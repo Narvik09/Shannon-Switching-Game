@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://circle.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 7.07107
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 0
+mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CollisionShape2D"]
+bias = 0.1
+softness = 0.1
+
+[node name="Circle" type="Sprite" parent="."]
+position = Vector2( -2.98023e-08, 0 )
+scale = Vector2( 0.175781, 0.163281 )
+texture = ExtResource( 1 )

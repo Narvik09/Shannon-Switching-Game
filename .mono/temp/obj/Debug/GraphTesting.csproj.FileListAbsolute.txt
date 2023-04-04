@@ -1,0 +1,9 @@
+C:\Users\narvi\Documents\Godot\GraphTesting\.mono\temp\bin\Debug\GraphTesting.dll
+C:\Users\narvi\Documents\Godot\GraphTesting\.mono\temp\bin\Debug\GraphTesting.pdb
+C:\Users\narvi\Documents\Godot\GraphTesting\.mono\temp\obj\Debug\GraphTesting.csproj.AssemblyReference.cache
+C:\Users\narvi\Documents\Godot\GraphTesting\.mono\temp\obj\Debug\GraphTesting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\narvi\Documents\Godot\GraphTesting\.mono\temp\obj\Debug\GraphTesting.AssemblyInfoInputs.cache
+C:\Users\narvi\Documents\Godot\GraphTesting\.mono\temp\obj\Debug\GraphTesting.AssemblyInfo.cs
+C:\Users\narvi\Documents\Godot\GraphTesting\.mono\temp\obj\Debug\GraphTesting.csproj.CoreCompileInputs.cache
+C:\Users\narvi\Documents\Godot\GraphTesting\.mono\temp\obj\Debug\GraphTesting.dll
+C:\Users\narvi\Documents\Godot\GraphTesting\.mono\temp\obj\Debug\GraphTesting.pdb
