@@ -1,15 +1,17 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://RopeSegment.cs" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://rope-segment.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.0
 height = 2.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
+rotation = -1.5708
 collision_layer = 2
 collision_mask = 0
+mode = 1
 linear_damp = 0.2
 angular_damp = 1.0
 script = ExtResource( 1 )
@@ -23,7 +25,17 @@ position = Vector2( 0, 3 )
 bias = 0.1
 softness = 0.1
 
-[node name="Icon" type="Sprite" parent="."]
-position = Vector2( 0, 10.1985 )
-scale = Vector2( 0.307906, 0.131203 )
+[node name="Rope-segment" type="Sprite" parent="."]
+position = Vector2( 0.00726193, 3 )
+scale = Vector2( 0.00860834, 0.160047 )
 texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -3.99999
+margin_top = -4.00001
+margin_right = 8.00001
+margin_bottom = 16.0
+rect_scale = Vector2( 0.7, 0.7 )
+
+[connection signal="pressed" from="Button" to="." method="RopeSegmentClicked"]

@@ -1,11 +1,255 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v4.7.2": {}
+    ".NETFramework,Version=v4.7.2": {
+      "Rubjerg.Graphviz/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Rubjerg.Graphviz.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Rubjerg.Graphviz.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/netstandard2.0/GraphvizWrapper.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "GraphvizWrapper.dll"
+          },
+          "contentFiles/any/netstandard2.0/GraphvizWrapper.exp": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "GraphvizWrapper.exp"
+          },
+          "contentFiles/any/netstandard2.0/GraphvizWrapper.lib": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "GraphvizWrapper.lib"
+          },
+          "contentFiles/any/netstandard2.0/GraphvizWrapper.pdb": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "GraphvizWrapper.pdb"
+          },
+          "contentFiles/any/netstandard2.0/cairo.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "cairo.dll"
+          },
+          "contentFiles/any/netstandard2.0/cdt.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "cdt.dll"
+          },
+          "contentFiles/any/netstandard2.0/cgraph.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "cgraph.dll"
+          },
+          "contentFiles/any/netstandard2.0/config6": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "config6"
+          },
+          "contentFiles/any/netstandard2.0/expat.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "expat.dll"
+          },
+          "contentFiles/any/netstandard2.0/fontconfig.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "fontconfig.dll"
+          },
+          "contentFiles/any/netstandard2.0/getopt.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "getopt.dll"
+          },
+          "contentFiles/any/netstandard2.0/glib-2.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "glib-2.dll"
+          },
+          "contentFiles/any/netstandard2.0/gobject-2.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "gobject-2.dll"
+          },
+          "contentFiles/any/netstandard2.0/gvc.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "gvc.dll"
+          },
+          "contentFiles/any/netstandard2.0/gvplugin_core.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "gvplugin_core.dll"
+          },
+          "contentFiles/any/netstandard2.0/gvplugin_dot_layout.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "gvplugin_dot_layout.dll"
+          },
+          "contentFiles/any/netstandard2.0/gvplugin_gdiplus.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "gvplugin_gdiplus.dll"
+          },
+          "contentFiles/any/netstandard2.0/gvplugin_neato_layout.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "gvplugin_neato_layout.dll"
+          },
+          "contentFiles/any/netstandard2.0/gvplugin_pango.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "gvplugin_pango.dll"
+          },
+          "contentFiles/any/netstandard2.0/libharfbuzz-0.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "libharfbuzz-0.dll"
+          },
+          "contentFiles/any/netstandard2.0/pango-1.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "pango-1.dll"
+          },
+          "contentFiles/any/netstandard2.0/pangocairo-1.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "pangocairo-1.dll"
+          },
+          "contentFiles/any/netstandard2.0/pangoft2-1.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "pangoft2-1.dll"
+          },
+          "contentFiles/any/netstandard2.0/pangowin32-1.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "pangowin32-1.dll"
+          },
+          "contentFiles/any/netstandard2.0/pathplan.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "pathplan.dll"
+          },
+          "contentFiles/any/netstandard2.0/pixman-1.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "pixman-1.dll"
+          },
+          "contentFiles/any/netstandard2.0/xdot.dll": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "xdot.dll"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Rubjerg.Graphviz/1.1.0": {
+      "sha512": "yiCSFB0XY0j+01C4izgb0bHt2a3awTkmPssKOo3Q3/3zVa+1oJkW+CyK5sN+55CcthZQ4Pr6K4oKKDr5mlo58w==",
+      "type": "package",
+      "path": "rubjerg.graphviz/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "content/GraphvizWrapper.dll",
+        "content/GraphvizWrapper.exp",
+        "content/GraphvizWrapper.lib",
+        "content/GraphvizWrapper.pdb",
+        "content/cairo.dll",
+        "content/cdt.dll",
+        "content/cgraph.dll",
+        "content/config6",
+        "content/expat.dll",
+        "content/fontconfig.dll",
+        "content/getopt.dll",
+        "content/glib-2.dll",
+        "content/gobject-2.dll",
+        "content/gvc.dll",
+        "content/gvplugin_core.dll",
+        "content/gvplugin_dot_layout.dll",
+        "content/gvplugin_gdiplus.dll",
+        "content/gvplugin_neato_layout.dll",
+        "content/gvplugin_pango.dll",
+        "content/libharfbuzz-0.dll",
+        "content/pango-1.dll",
+        "content/pangocairo-1.dll",
+        "content/pangoft2-1.dll",
+        "content/pangowin32-1.dll",
+        "content/pathplan.dll",
+        "content/pixman-1.dll",
+        "content/xdot.dll",
+        "contentFiles/any/netstandard2.0/GraphvizWrapper.dll",
+        "contentFiles/any/netstandard2.0/GraphvizWrapper.exp",
+        "contentFiles/any/netstandard2.0/GraphvizWrapper.lib",
+        "contentFiles/any/netstandard2.0/GraphvizWrapper.pdb",
+        "contentFiles/any/netstandard2.0/cairo.dll",
+        "contentFiles/any/netstandard2.0/cdt.dll",
+        "contentFiles/any/netstandard2.0/cgraph.dll",
+        "contentFiles/any/netstandard2.0/config6",
+        "contentFiles/any/netstandard2.0/expat.dll",
+        "contentFiles/any/netstandard2.0/fontconfig.dll",
+        "contentFiles/any/netstandard2.0/getopt.dll",
+        "contentFiles/any/netstandard2.0/glib-2.dll",
+        "contentFiles/any/netstandard2.0/gobject-2.dll",
+        "contentFiles/any/netstandard2.0/gvc.dll",
+        "contentFiles/any/netstandard2.0/gvplugin_core.dll",
+        "contentFiles/any/netstandard2.0/gvplugin_dot_layout.dll",
+        "contentFiles/any/netstandard2.0/gvplugin_gdiplus.dll",
+        "contentFiles/any/netstandard2.0/gvplugin_neato_layout.dll",
+        "contentFiles/any/netstandard2.0/gvplugin_pango.dll",
+        "contentFiles/any/netstandard2.0/libharfbuzz-0.dll",
+        "contentFiles/any/netstandard2.0/pango-1.dll",
+        "contentFiles/any/netstandard2.0/pangocairo-1.dll",
+        "contentFiles/any/netstandard2.0/pangoft2-1.dll",
+        "contentFiles/any/netstandard2.0/pangowin32-1.dll",
+        "contentFiles/any/netstandard2.0/pathplan.dll",
+        "contentFiles/any/netstandard2.0/pixman-1.dll",
+        "contentFiles/any/netstandard2.0/xdot.dll",
+        "lib/netstandard2.0/Rubjerg.Graphviz.dll",
+        "rubjerg.graphviz.1.1.0.nupkg.sha512",
+        "rubjerg.graphviz.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v4.7.2": []
+    ".NETFramework,Version=v4.7.2": [
+      "Rubjerg.Graphviz >= 1.1.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\narvi\\.nuget\\packages\\": {},
@@ -53,6 +297,12 @@
     "frameworks": {
       "net472": {
         "targetAlias": "net472",
+        "dependencies": {
+          "Rubjerg.Graphviz": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          }
+        },
         "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }

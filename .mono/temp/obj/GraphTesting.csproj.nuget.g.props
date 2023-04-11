@@ -14,4 +14,276 @@
     <SourceRoot Include="C:\Users\narvi\AppData\Roaming\Godot\mono\GodotNuGetFallbackFolder\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\GraphvizWrapper.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\GraphvizWrapper.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>GraphvizWrapper.dll</TargetPath>
+      <Private>True</Private>
+      <Link>GraphvizWrapper.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\GraphvizWrapper.exp" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\GraphvizWrapper.exp')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>GraphvizWrapper.exp</TargetPath>
+      <Private>True</Private>
+      <Link>GraphvizWrapper.exp</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\GraphvizWrapper.lib" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\GraphvizWrapper.lib')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>GraphvizWrapper.lib</TargetPath>
+      <Private>True</Private>
+      <Link>GraphvizWrapper.lib</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\GraphvizWrapper.pdb" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\GraphvizWrapper.pdb')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>GraphvizWrapper.pdb</TargetPath>
+      <Private>True</Private>
+      <Link>GraphvizWrapper.pdb</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\cairo.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\cairo.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>cairo.dll</TargetPath>
+      <Private>True</Private>
+      <Link>cairo.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\cdt.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\cdt.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>cdt.dll</TargetPath>
+      <Private>True</Private>
+      <Link>cdt.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\cgraph.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\cgraph.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>cgraph.dll</TargetPath>
+      <Private>True</Private>
+      <Link>cgraph.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\config6" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\config6')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>config6</TargetPath>
+      <Private>True</Private>
+      <Link>config6</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\expat.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\expat.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>expat.dll</TargetPath>
+      <Private>True</Private>
+      <Link>expat.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\fontconfig.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\fontconfig.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>fontconfig.dll</TargetPath>
+      <Private>True</Private>
+      <Link>fontconfig.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\getopt.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\getopt.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>getopt.dll</TargetPath>
+      <Private>True</Private>
+      <Link>getopt.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\glib-2.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\glib-2.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>glib-2.dll</TargetPath>
+      <Private>True</Private>
+      <Link>glib-2.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gobject-2.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gobject-2.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>gobject-2.dll</TargetPath>
+      <Private>True</Private>
+      <Link>gobject-2.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvc.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvc.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>gvc.dll</TargetPath>
+      <Private>True</Private>
+      <Link>gvc.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvplugin_core.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvplugin_core.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>gvplugin_core.dll</TargetPath>
+      <Private>True</Private>
+      <Link>gvplugin_core.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvplugin_dot_layout.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvplugin_dot_layout.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>gvplugin_dot_layout.dll</TargetPath>
+      <Private>True</Private>
+      <Link>gvplugin_dot_layout.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvplugin_gdiplus.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvplugin_gdiplus.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>gvplugin_gdiplus.dll</TargetPath>
+      <Private>True</Private>
+      <Link>gvplugin_gdiplus.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvplugin_neato_layout.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvplugin_neato_layout.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>gvplugin_neato_layout.dll</TargetPath>
+      <Private>True</Private>
+      <Link>gvplugin_neato_layout.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvplugin_pango.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\gvplugin_pango.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>gvplugin_pango.dll</TargetPath>
+      <Private>True</Private>
+      <Link>gvplugin_pango.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\libharfbuzz-0.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\libharfbuzz-0.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libharfbuzz-0.dll</TargetPath>
+      <Private>True</Private>
+      <Link>libharfbuzz-0.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pango-1.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pango-1.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>pango-1.dll</TargetPath>
+      <Private>True</Private>
+      <Link>pango-1.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pangocairo-1.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pangocairo-1.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>pangocairo-1.dll</TargetPath>
+      <Private>True</Private>
+      <Link>pangocairo-1.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pangoft2-1.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pangoft2-1.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>pangoft2-1.dll</TargetPath>
+      <Private>True</Private>
+      <Link>pangoft2-1.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pangowin32-1.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pangowin32-1.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>pangowin32-1.dll</TargetPath>
+      <Private>True</Private>
+      <Link>pangowin32-1.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pathplan.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pathplan.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>pathplan.dll</TargetPath>
+      <Private>True</Private>
+      <Link>pathplan.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pixman-1.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\pixman-1.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>pixman-1.dll</TargetPath>
+      <Private>True</Private>
+      <Link>pixman-1.dll</Link>
+    </None>
+    <None Include="$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\xdot.dll" Condition="Exists('$(NuGetPackageRoot)rubjerg.graphviz\1.1.0\contentFiles\any\netstandard2.0\xdot.dll')">
+      <NuGetPackageId>Rubjerg.Graphviz</NuGetPackageId>
+      <NuGetPackageVersion>1.1.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>xdot.dll</TargetPath>
+      <Private>True</Private>
+      <Link>xdot.dll</Link>
+    </None>
+  </ItemGroup>
 </Project>

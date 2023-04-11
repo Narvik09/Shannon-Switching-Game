@@ -3,12 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+// The literal edge / rope
 public class Rope : Node
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
     // list to store all rope segments
     List<RigidBody2D> ropeSegments = new List<RigidBody2D>();
     // each segment length
@@ -16,38 +13,30 @@ public class Rope : Node
 
     PackedScene RopeSegment = (PackedScene)ResourceLoader.Load("res://RopeSegment.tscn");
 
-    public RigidBody2D startSegment;
-    public RigidBody2D endSegment;
+    public RigidBody2D endingSegmentEnd = null;
+
+    public int EdgeNumber;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        startSegment = GetNode<RigidBody2D>("StartSegment");
-        endSegment = GetNode<RigidBody2D>("EndSegment");
     }
 
-    // function to spawn a rope between two positions
-    public void SpawnRope(Vector2 startPos, Vector2 endPos)
+    // function to spawn a rope between two pinjoints
+    // Pass in pinjoints of starting and ending nodes.
+    public void SpawnRope(RigidBody2D startingSegmentEnd, RigidBody2D endingSegmentEnd)
     {
-        // set start and end position
-        startSegment.GlobalPosition = startPos;
-        endSegment.GlobalPosition = endPos;
-        // get exact position of the joints
-        startPos = startSegment.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").GlobalPosition;
-        endPos = endSegment.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").GlobalPosition;
+        Vector2 startPos = startingSegmentEnd.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").GlobalPosition;
+        Vector2 endPos = endingSegmentEnd.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").GlobalPosition;
+
+        this.endingSegmentEnd = endingSegmentEnd;
+
         // compute distance, number of segments and spawn angle
         double distance = startPos.DistanceTo(endPos);
         int numberOfSegments = (int)Math.Round(distance / segmentLength);
         float spawnAngle = (endPos - startPos).Angle() - (float)(Math.PI / 2);
         // create rope
-        CreateRope(numberOfSegments, startSegment, endPos, spawnAngle);
-        // test
-        GD.Print(numberOfSegments);
-        GD.Print(ropeSegments.Count);
-        // for (int i = 0; i < ropeSegments.Count; i++)
-        // {
-        //     RemoveChild(ropeSegments[i]);
-        // }
+        CreateRope(numberOfSegments, startingSegmentEnd, endPos, spawnAngle);
     }
 
     // function to create a rope made of rope segments
@@ -58,6 +47,7 @@ public class Rope : Node
             // add segment to the rope
             parent = AddSegment(parent, i, spawnAngle);
             parent.Name = "RopeSegment_" + i.ToString();
+            // GD.Print(parent.Name, spawnAngle);
             ropeSegments.Add(parent);
             // to avoid rope segment going out of end position
             var jointPos = parent.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").GlobalPosition;
@@ -67,8 +57,8 @@ public class Rope : Node
             }
         }
         // set end segment position
-        endSegment.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").NodeA = endSegment.GetPath();
-        endSegment.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").NodeB = ropeSegments.Last().GetPath();
+        endingSegmentEnd.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").NodeA = endingSegmentEnd.GetPath();
+        endingSegmentEnd.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").NodeB = ropeSegments.Last().GetPath();
     }
 
     // function to add a rope segment to the rope

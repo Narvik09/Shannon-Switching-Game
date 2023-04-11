@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BtHY+BojQwKesjUQH2etAbvnNgAaxIDmD9P83gDi9r+2DvpEF2RpgtykgXXjAM2BMRsn+6Jio0A36PgqUDUKmA==",
+  "dgSpecHash": "/BROhsrKJJaUM0z6iO3KqhWdQlral1EM4P/vDRbD4fAwpqTkFgk9MYz9bIl9GXO1q1oDfEv+aqvSxYSQ1Fu5Zg==",
   "success": true,
   "projectFilePath": "C:\\Users\\narvi\\Documents\\Godot\\GraphTesting\\GraphTesting.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\narvi\\.nuget\\packages\\rubjerg.graphviz\\1.1.0\\rubjerg.graphviz.1.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
