@@ -7,7 +7,7 @@ using System.Linq;
 public class Rope : Node
 {
     // list to store all rope segments
-    List<RigidBody2D> ropeSegments = new List<RigidBody2D>();
+    public List<RigidBody2D> ropeSegments = new List<RigidBody2D>();
     // each segment length
     const double segmentLength = 4.0;
 
@@ -15,7 +15,7 @@ public class Rope : Node
 
     public RigidBody2D endingSegmentEnd = null;
 
-    public int EdgeNumber;
+    public string startNodeLabel = null, endNodeLabel = null, edgeName = null;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -24,12 +24,15 @@ public class Rope : Node
 
     // function to spawn a rope between two pinjoints
     // Pass in pinjoints of starting and ending nodes.
-    public void SpawnRope(RigidBody2D startingSegmentEnd, RigidBody2D endingSegmentEnd)
+    public void SpawnRope(RigidBody2D startingSegmentEnd, RigidBody2D endingSegmentEnd, string startNodeLabel, string endNodeLabel, string edgeName)
     {
         Vector2 startPos = startingSegmentEnd.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").GlobalPosition;
         Vector2 endPos = endingSegmentEnd.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").GlobalPosition;
 
         this.endingSegmentEnd = endingSegmentEnd;
+        this.startNodeLabel = startNodeLabel;
+        this.endNodeLabel = endNodeLabel;
+        this.edgeName = edgeName;
 
         // compute distance, number of segments and spawn angle
         double distance = startPos.DistanceTo(endPos);

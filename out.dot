@@ -1,12 +1,12 @@
 graph "Some Unique Identifier" {
-    A -- B [key = "AB";];
+    Start -- B [key = "AB";];
     B -- C [key = "BC";];
     C -- D [key = "CD";];
     D -- E [key = "DE";];
-    D -- F [key = "DF";];
+    D -- End [key = "DF";];
     D -- G [key = "DG";];
     D -- H [key = "DH";];
     D -- I [key = "DI";];
     D -- J [key = "DJ";];
-    I -- A [key = "IA";];
+    I -- Start [key = "IA";];
 }
