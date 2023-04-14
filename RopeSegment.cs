@@ -67,7 +67,7 @@ public class RopeSegment : RigidBody2D
             // Make button unclickable.
             ropeSegment.GetNode<Button>("Button").Disabled = true;
             // Change the sprite to chains.
-            ropeSegment.GetNode<Sprite>("Chain-segment").Visible = true;
+            ropeSegment.GetNode<Sprite>("MetalBridge").Visible = true;
         }
     }
 

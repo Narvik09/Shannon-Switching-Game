@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://circle.png" type="Texture" id=1]
+[ext_resource path="res://nodePlatform.png" type="Texture" id=1]
 [ext_resource path="res://SegmentEnd.cs" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -21,7 +21,7 @@ softness = 0.1
 
 [node name="Circle" type="Sprite" parent="."]
 modulate = Color( 0.796078, 0.658824, 0.184314, 1 )
-position = Vector2( -2.98023e-08, 0 )
-scale = Vector2( 0.175781, 0.163281 )
+position = Vector2( 7.10543e-15, -1 )
+scale = Vector2( 0.320312, 0.4125 )
 z_index = 500
 texture = ExtResource( 1 )

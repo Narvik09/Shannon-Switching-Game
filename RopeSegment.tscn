@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://RopeSegment.cs" type="Script" id=1]
-[ext_resource path="res://rope-segment.png" type="Texture" id=2]
-[ext_resource path="res://chain-part.jpg" type="Texture" id=3]
+[ext_resource path="res://floor-steel.png" type="Texture" id=2]
+[ext_resource path="res://bridge.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.0
@@ -26,16 +26,17 @@ position = Vector2( 0, 3 )
 bias = 0.1
 softness = 0.1
 
-[node name="Rope-segment" type="Sprite" parent="."]
-position = Vector2( 0.00726193, 3 )
-scale = Vector2( 0.00860834, 0.160047 )
-texture = ExtResource( 2 )
-
-[node name="Chain-segment" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0.0448581, 2.9796 )
-scale = Vector2( 0.0311905, 0.115744 )
+[node name="WoodenBridge" type="Sprite" parent="."]
+position = Vector2( 0.000152588, 2.99996 )
+scale = Vector2( 0.179636, 0.180513 )
 texture = ExtResource( 3 )
+
+[node name="MetalBridge" type="Sprite" parent="."]
+visible = false
+position = Vector2( -0.0232811, 3.00047 )
+rotation = 1.5708
+scale = Vector2( 0.140442, 0.13991 )
+texture = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
