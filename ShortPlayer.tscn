@@ -37,8 +37,10 @@ tracks/1/keys = {
 [node name="ShortPlayer" type="KinematicBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -71 )
 scale = Vector2( 2, 2 )
 texture = SubResource( 1 )
+flip_h = true
 hframes = 12
 frame = 11
 

@@ -22,29 +22,48 @@ public class TestStage : Node2D
     {
         // reading from dot file
         root = RootGraph.FromDotFile("C:\\Users\\narvi\\Documents\\Godot\\GraphTesting\\out.dot");
+
         // using graphviz to compute a dot layout for setting node positions
         root.ComputeLayout(LayoutEngines.Neato);
         root.ToSvgFile("C:\\Users\\narvi\\Documents\\Godot\\GraphTesting\\dot_out.svg");
 
         var nodes = root.Nodes();
         var edges = root.Edges();
-
         // coordinates corresponding to the center of the screen 
         Vector2 screenCenter = GetViewportRect().Size / 2;
+        Vector2 center = Vector2.Zero;
+        int count = 0;
         foreach (var node in nodes)
         {
             PointF position = node.Position();
             nodePos = new Vector2(position.X, position.Y);
+            center += nodePos;
+            count++;
+        }
+        center /= count;
+        screenCenter -= center;
 
+        foreach (var node in nodes)
+        {
+            PointF position = node.Position();
+            nodePos = new Vector2(position.X, position.Y);
             // translating graph to center of the screen
             // TODO : Center and scale the graph accordingly
             nodePos += screenCenter;
+            GD.Print(nodePos);
             SegmentEnd segmentEnd = (SegmentEnd)SegmentEnd.Instance();
             segmentEnd.GlobalPosition = nodePos;
             // coloring start and end nodes
-            if (node == root.GetNode("Start") || node == root.GetNode("End"))
+            if (node == root.GetNode("Start"))
             {
-                segmentEnd.GetNode<Sprite>("Circle").SelfModulate = new Godot.Color("#5ac3f1");
+                segmentEnd.GetNode<Sprite>("Platform").Texture = (Texture)ResourceLoader.Load("res://mainPlatform.png");
+                segmentEnd.GetNode<KinematicBody2D>("ShortPlayer").Visible = true;
+
+            }
+            else if (node == root.GetNode("End"))
+            {
+                segmentEnd.GetNode<Sprite>("Platform").Texture = (Texture)ResourceLoader.Load("res://mainPlatform.png");
+                segmentEnd.GetNode<KinematicBody2D>("CutPlayer").Visible = true;
             }
             AddChild(segmentEnd);
 
@@ -77,7 +96,6 @@ public class TestStage : Node2D
         }
 
         root.FreeLayout();
-        GD.Print(nodePos);
     }
 
     // Input function overriding

@@ -34,7 +34,7 @@ tracks/1/keys = {
 [node name="CutPlayer" type="KinematicBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -0.75 )
+position = Vector2( -19, -29 )
 scale = Vector2( 1, 1.01327 )
 texture = ExtResource( 2 )
 hframes = 9

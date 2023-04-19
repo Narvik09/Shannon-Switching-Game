@@ -9,7 +9,7 @@ public class Rope : Node
     // list to store all rope segments
     public List<RigidBody2D> ropeSegments = new List<RigidBody2D>();
     // each segment length
-    const double segmentLength = 4.0;
+    const double segmentLength = 15.0;
 
     PackedScene RopeSegment = (PackedScene)ResourceLoader.Load("res://RopeSegment.tscn");
 

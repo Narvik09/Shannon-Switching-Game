@@ -5,8 +5,7 @@
 [ext_resource path="res://bridge.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 2.0
-height = 2.0
+height = 10.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
 rotation = -1.5708
@@ -18,32 +17,31 @@ angular_damp = 1.0
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 3 )
+position = Vector2( -5.43594e-05, 15 )
 shape = SubResource( 1 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="CollisionShape2D"]
-position = Vector2( 0, 3 )
+position = Vector2( -5.43594e-05, 15 )
 bias = 0.1
 softness = 0.1
 
 [node name="WoodenBridge" type="Sprite" parent="."]
-position = Vector2( 0.000152588, 2.99996 )
-scale = Vector2( 0.179636, 0.180513 )
+position = Vector2( -0.0638921, 14.9375 )
+rotation = 1.5708
+scale = Vector2( 1.2391, 0.593862 )
 texture = ExtResource( 3 )
 
 [node name="MetalBridge" type="Sprite" parent="."]
 visible = false
-position = Vector2( -0.0232811, 3.00047 )
-rotation = 1.5708
-scale = Vector2( 0.140442, 0.13991 )
+position = Vector2( 0.130306, 14.9658 )
+scale = Vector2( 0.463661, 0.952613 )
 texture = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = -3.99999
-margin_top = -4.00001
-margin_right = 8.00001
-margin_bottom = 16.0
+margin_left = -10.0
+margin_right = 19.0
+margin_bottom = 43.0
 rect_scale = Vector2( 0.7, 0.7 )
 
 [connection signal="pressed" from="Button" to="." method="RopeSegmentClicked"]
