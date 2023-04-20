@@ -29,10 +29,19 @@ public class TestStage : Node2D
 
         var nodes = root.Nodes();
         var edges = root.Edges();
+
         // coordinates corresponding to the center of the screen 
         Vector2 screenCenter = GetViewportRect().Size / 2;
+        Vector2 screenSize = GetViewportRect().Size;
         Vector2 center = Vector2.Zero;
+
+        double minX = double.PositiveInfinity, maxX = double.NegativeInfinity;
+        double minY = double.PositiveInfinity, maxY = double.NegativeInfinity;
+        double width = screenSize.x;
+        double height = screenSize.y;
         int count = 0;
+
+        // computing centroid 
         foreach (var node in nodes)
         {
             PointF position = node.Position();
@@ -43,26 +52,60 @@ public class TestStage : Node2D
         center /= count;
         screenCenter -= center;
 
+        string minNode = "", maxNode = "";
+        // computing max and min coords
         foreach (var node in nodes)
         {
             PointF position = node.Position();
             nodePos = new Vector2(position.X, position.Y);
-            // translating graph to center of the screen
-            // TODO : Center and scale the graph accordingly
             nodePos += screenCenter;
+            if (minX > nodePos.x)
+            {
+                minNode = node.GetName();
+            }
+            if (maxX < nodePos.x)
+            {
+                maxNode = node.GetName();
+            }
+            minX = Math.Min(minX, nodePos.x);
+            maxX = Math.Max(maxX, nodePos.x);
+            minY = Math.Min(minY, nodePos.y);
+            maxY = Math.Max(maxY, nodePos.y);
+        }
+
+        // padding
+        minX -= 0.05 * width;
+        maxX += 0.05 * width;
+        minY -= 0.05 * height;
+        maxY += 0.05 * height;
+
+        GD.Print(minNode);
+        GD.Print(maxNode);
+
+        foreach (var node in nodes)
+        {
+            PointF position = node.Position();
+            nodePos = new Vector2(position.X, position.Y);
+            // centering
+            nodePos += screenCenter;
+            // scaling
+            nodePos.x = (float)((nodePos.x - minX) * width / (maxX - minX + 1));
+            nodePos.y = (float)((nodePos.y - minY) * height / (maxY - minY + 1));
             GD.Print(nodePos);
             SegmentEnd segmentEnd = (SegmentEnd)SegmentEnd.Instance();
             segmentEnd.GlobalPosition = nodePos;
             // coloring start and end nodes
             if (node == root.GetNode("Start"))
             {
-                segmentEnd.GetNode<Sprite>("Platform").Texture = (Texture)ResourceLoader.Load("res://mainPlatform.png");
+                segmentEnd.GetNode<Sprite>("Platform").Visible = false;
+                segmentEnd.GetNode<Sprite>("EndPlatform").Visible = true;
+                segmentEnd.GetNode<Sprite>("EndPlatform").FlipH = true;
                 segmentEnd.GetNode<KinematicBody2D>("ShortPlayer").Visible = true;
-
             }
             else if (node == root.GetNode("End"))
             {
-                segmentEnd.GetNode<Sprite>("Platform").Texture = (Texture)ResourceLoader.Load("res://mainPlatform.png");
+                segmentEnd.GetNode<Sprite>("Platform").Visible = false;
+                segmentEnd.GetNode<Sprite>("EndPlatform").Visible = true;
                 segmentEnd.GetNode<KinematicBody2D>("CutPlayer").Visible = true;
             }
             AddChild(segmentEnd);
