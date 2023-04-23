@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="GraphTesting"
-run/main_scene="res://TestStage.tscn"
+run/main_scene="res://StartScreen.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/resizable=false
 
 [gui]
 
