@@ -15,7 +15,11 @@ public class TestStage : Node2D
 
     public RootGraph root = null;
 
+    private Random rand = new Random();
+
     public Boolean cutPlaying = true;
+
+    public SegmentEnd startNodeSegmentEnd = null, endNodeSegmentEnd = null;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -91,9 +95,10 @@ public class TestStage : Node2D
             // scaling
             nodePos.x = (float)((nodePos.x - minX) * width / (maxX - minX + 1));
             nodePos.y = (float)((nodePos.y - minY) * height / (maxY - minY + 1));
-            GD.Print(nodePos);
+            // GD.Print(nodePos);
             SegmentEnd segmentEnd = (SegmentEnd)SegmentEnd.Instance();
             segmentEnd.GlobalPosition = nodePos;
+            segmentEnd.GetNode<Sprite>("Platform").Texture = (Texture)ResourceLoader.Load("res://nodePlatform_" + rand.Next(1, 4).ToString() + ".png");
             // coloring start and end nodes
             if (node == root.GetNode("Start"))
             {
@@ -101,12 +106,14 @@ public class TestStage : Node2D
                 segmentEnd.GetNode<Sprite>("EndPlatform").Visible = true;
                 segmentEnd.GetNode<Sprite>("EndPlatform").FlipH = true;
                 segmentEnd.GetNode<KinematicBody2D>("ShortPlayer").Visible = true;
+                startNodeSegmentEnd = segmentEnd;
             }
             else if (node == root.GetNode("End"))
             {
                 segmentEnd.GetNode<Sprite>("Platform").Visible = false;
                 segmentEnd.GetNode<Sprite>("EndPlatform").Visible = true;
                 segmentEnd.GetNode<KinematicBody2D>("CutPlayer").Visible = true;
+                endNodeSegmentEnd = segmentEnd;
             }
             AddChild(segmentEnd);
 

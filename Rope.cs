@@ -9,11 +9,13 @@ public class Rope : Node
     // list to store all rope segments
     public List<RigidBody2D> ropeSegments = new List<RigidBody2D>();
     // each segment length
-    const double segmentLength = 15.0;
+    const double segmentLength = 16.0;
 
     PackedScene RopeSegment = (PackedScene)ResourceLoader.Load("res://RopeSegment.tscn");
 
     public RigidBody2D endingSegmentEnd = null;
+
+    public Random rand = new Random();
 
     public string startNodeLabel = null, endNodeLabel = null, edgeName = null;
 
@@ -36,8 +38,12 @@ public class Rope : Node
 
         // compute distance, number of segments and spawn angle
         double distance = startPos.DistanceTo(endPos);
+        double randDistance = rand.NextDouble() * ((Math.PI / 2 - 1) * distance) + distance;
+        // GD.Print("Distance  : " + randDistance.ToString());
         int numberOfSegments = (int)Math.Round(distance / segmentLength);
+        // GD.Print("NumberOfSegments : " + numberOfSegments.ToString());
         float spawnAngle = (endPos - startPos).Angle() - (float)(Math.PI / 2);
+        // GD.Print(spawnAngle);
         // create rope
         CreateRope(numberOfSegments, startingSegmentEnd, endPos, spawnAngle);
     }
@@ -60,8 +66,15 @@ public class Rope : Node
             }
         }
         // set end segment position
-        endingSegmentEnd.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").NodeA = endingSegmentEnd.GetPath();
-        endingSegmentEnd.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").NodeB = ropeSegments.Last().GetPath();
+        var joint = new PinJoint2D();
+        joint.NodeA = endingSegmentEnd.GetPath();
+        joint.NodeB = ropeSegments.Last().GetPath();
+        joint.DisableCollision = true;
+        joint.Bias = (float)0.1;
+        joint.Softness = (float)0.1;
+        endingSegmentEnd.GetNode<CollisionShape2D>("CollisionShape2D").AddChild(joint);
+        // endingSegmentEnd.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").NodeA = endingSegmentEnd.GetPath();
+        // endingSegmentEnd.GetNode<PinJoint2D>("CollisionShape2D/PinJoint2D").NodeB = ropeSegments.Last().GetPath();
     }
 
     // function to add a rope segment to the rope
@@ -74,8 +87,13 @@ public class Rope : Node
         segment.Parent = parent;
         segment.ID = id;
         AddChild(segment);
-        joint.NodeA = parent.GetPath();
-        joint.NodeB = segment.GetPath();
+        var newJoint = new PinJoint2D();
+        newJoint.NodeA = parent.GetPath();
+        newJoint.NodeB = segment.GetPath();
+        newJoint.DisableCollision = true;
+        newJoint.Bias = (float)0.1;
+        newJoint.Softness = (float)0.1;
+        parent.GetNode<CollisionShape2D>("CollisionShape2D").AddChild(newJoint);
         return segment;
     }
 

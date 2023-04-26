@@ -1,47 +1,123 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://RopeSegment.cs" type="Script" id=1]
-[ext_resource path="res://floor-steel.png" type="Texture" id=2]
-[ext_resource path="res://bridge.png" type="Texture" id=3]
+[ext_resource path="res://floor-steel(2).png" type="Texture" id=2]
+[ext_resource path="res://bridge-1.png" type="Texture" id=3]
+[ext_resource path="res://bridge-burn.png" type="Texture" id=4]
+[ext_resource path="res://smoke(2).png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
-height = 10.0
+radius = 8.0
+height = 8.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "Burn"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0, 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Change"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 2, 1, 0 ]
+}
 
 [node name="RigidBody2D" type="RigidBody2D"]
 rotation = -1.5708
 collision_layer = 2
 collision_mask = 0
-mode = 1
-linear_damp = 0.2
+gravity_scale = 3.27
+linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -5.43594e-05, 15 )
+position = Vector2( -4.3869e-05, 12 )
 shape = SubResource( 1 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="CollisionShape2D"]
-position = Vector2( -5.43594e-05, 15 )
+light_mask = 2
+position = Vector2( -4.33922e-05, 12 )
 bias = 0.1
 softness = 0.1
 
 [node name="WoodenBridge" type="Sprite" parent="."]
-position = Vector2( -0.0638921, 14.9375 )
+position = Vector2( -4.37498e-05, 12.1046 )
 rotation = 1.5708
-scale = Vector2( 1.2391, 0.593862 )
+scale = Vector2( 0.264342, 0.8 )
 texture = ExtResource( 3 )
+
+[node name="Fire" type="Sprite" parent="WoodenBridge"]
+visible = false
+position = Vector2( 6.22451, -1.875 )
+scale = Vector2( 3.6779, 0.820312 )
+texture = ExtResource( 4 )
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WoodenBridge/Fire"]
+anims/Burn = SubResource( 2 )
+anims/Fade = SubResource( 3 )
+
+[node name="Smoke" type="Sprite" parent="WoodenBridge"]
+visible = false
+position = Vector2( -7.96167, -1.25 )
+scale = Vector2( 0.0764544, 0.0224476 )
+texture = ExtResource( 5 )
+hframes = 7
+frame = 3
+region_rect = Rect2( -40, 70, 1270, 1200 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WoodenBridge/Smoke"]
+anims/Change = SubResource( 4 )
 
 [node name="MetalBridge" type="Sprite" parent="."]
 visible = false
-position = Vector2( 0.130306, 14.9658 )
-scale = Vector2( 0.463661, 0.952613 )
+position = Vector2( 0.0188169, 12.0114 )
+rotation = 1.5708
+scale = Vector2( 0.748188, 0.999066 )
 texture = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = -10.0
-margin_right = 19.0
-margin_bottom = 43.0
+margin_left = -8.0
+margin_top = -2.86102e-05
+margin_right = 15.0
+margin_bottom = 35.0
 rect_scale = Vector2( 0.7, 0.7 )
 
 [connection signal="pressed" from="Button" to="." method="RopeSegmentClicked"]

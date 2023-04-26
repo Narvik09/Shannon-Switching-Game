@@ -3,14 +3,28 @@ using System;
 
 public class StartScreen : Control
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
+    public PackedScene TestStage;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         this.GetNode<Button>("VBoxContainer/SinglePlayerButton").GrabFocus();
+    }
+
+    public void HideButtons()
+    {
+        GetNode<Sprite>("HomeScreen").Hide();
+        GetNode<Label>("Title").Hide();
+        GetNode<VBoxContainer>("VBoxContainer").Hide();
+    }
+
+    public void SetScene(string option, string scenePath)
+    {
+        GD.Print($"{option} pressed!!!");
+        var mainScene = (PackedScene)ResourceLoader.Load(scenePath);
+        var instance = (TestStage)mainScene.Instance();
+        // instance.Option = option;
+        AddChild(instance);
     }
 
     public void OnSinglePlayerButtonPressed()
@@ -20,7 +34,8 @@ public class StartScreen : Control
 
     public void OnMultiPlayerButtonPressed()
     {
-
+        SetScene("Multiplayer", "res://TestStage.tscn");
+        HideButtons();
     }
 
 

@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://TestStage.cs" type="Script" id=1]
 [ext_resource path="res://Background.jpg" type="Texture" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://KarenFat.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 120
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
 
 [node name="TestStage" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,3 +19,21 @@ script = ExtResource( 1 )
 position = Vector2( 519.011, 304.478 )
 scale = Vector2( 0.53853, 0.562078 )
 texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 118.0
+margin_top = 235.0
+margin_right = 927.0
+margin_bottom = 355.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 8
+custom_fonts/font = SubResource( 2 )
+text = "Cut has Won!"
+align = 1
+valign = 1
