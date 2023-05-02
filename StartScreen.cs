@@ -5,6 +5,8 @@ public class StartScreen : Control
 {
     public PackedScene TestStage;
 
+    public PackedScene characterScene = (PackedScene)ResourceLoader.Load("res://CharacterSelect.tscn");
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -29,13 +31,18 @@ public class StartScreen : Control
 
     public void OnSinglePlayerButtonPressed()
     {
+        GetTree().ChangeSceneTo(characterScene);
 
+        // SetScene("SinglePlayer", "res://TestStage.tscn");
+        // HideButtons();
     }
 
     public void OnMultiPlayerButtonPressed()
     {
-        SetScene("Multiplayer", "res://TestStage.tscn");
-        HideButtons();
+        GetTree().ChangeSceneTo(characterScene);
+
+        // SetScene("Multiplayer", "res://TestStage.tscn");
+        // HideButtons();
     }
 
 

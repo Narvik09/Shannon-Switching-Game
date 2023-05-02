@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="GraphTesting"
-run/main_scene="res://StartScreen.tscn"
+run/main_scene="res://CharacterSelect.tscn"
 config/icon="res://icon.png"
 
 [display]

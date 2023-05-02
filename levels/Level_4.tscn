@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://TestStage.cs" type="Script" id=1]
+[ext_resource path="res://levels/TestStage.cs" type="Script" id=1]
 [ext_resource path="res://Background.jpg" type="Texture" id=2]
+[ext_resource path="res://StartScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://LevelButton.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://KarenFat.ttf"
@@ -14,10 +16,11 @@ font_data = SubResource( 1 )
 
 [node name="TestStage" type="Node2D"]
 script = ExtResource( 1 )
+dotFilePath = "res://dotFiles/Level_4.dot"
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 519.011, 304.478 )
-scale = Vector2( 0.53853, 0.562078 )
+position = Vector2( 506.5, 299 )
+scale = Vector2( 0.528646, 0.559259 )
 texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
@@ -37,3 +40,15 @@ custom_fonts/font = SubResource( 2 )
 text = "Cut has Won!"
 align = 1
 valign = 1
+uppercase = true
+
+[node name="BackButton" parent="." instance=ExtResource( 4 )]
+margin_left = 16.0
+margin_top = 17.0
+margin_right = 136.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 120, 50 )
+text = "Back"
+icon = null
+flat = true
+levelScene = ExtResource( 3 )

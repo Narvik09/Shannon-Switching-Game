@@ -21,15 +21,18 @@ public class TestStage : Node2D
 
     public SegmentEnd startNodeSegmentEnd = null, endNodeSegmentEnd = null;
 
+    [Export(PropertyHint.File)]
+    public string dotFilePath;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        dotFilePath = dotFilePath.Substring("res://".Length());
+        // string temp = dotFilePath.Substr(0, dotFilePath.LastIndexOf("/"));
         // reading from dot file
-        root = RootGraph.FromDotFile("C:\\Users\\narvi\\Documents\\Godot\\GraphTesting\\out.dot");
-
+        root = RootGraph.FromDotFile(dotFilePath);
         // using graphviz to compute a dot layout for setting node positions
         root.ComputeLayout(LayoutEngines.Neato);
-        root.ToSvgFile("C:\\Users\\narvi\\Documents\\Godot\\GraphTesting\\dot_out.svg");
 
         var nodes = root.Nodes();
         var edges = root.Edges();
@@ -82,9 +85,6 @@ public class TestStage : Node2D
         maxX += 0.05 * width;
         minY -= 0.05 * height;
         maxY += 0.05 * height;
-
-        GD.Print(minNode);
-        GD.Print(maxNode);
 
         foreach (var node in nodes)
         {

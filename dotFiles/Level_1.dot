@@ -1,0 +1,13 @@
+graph prob5 {
+    v1 [pos = "320, 100";];
+    Start [pos = "140, 340";];
+    End [pos = "500, 340";];
+    v4 [pos = "320, 260";];
+    
+    Start -- v1 [key = "e1";];
+    End -- v1 [key = "e2";];
+    v4 -- v1 [key = "e3";];
+    End -- Start [key = "e4";];
+    v4 -- Start [key = "e5";];
+    v4 -- End [key = "e6";];
+}
