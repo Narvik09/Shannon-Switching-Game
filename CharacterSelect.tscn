@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://KarenFat.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://cs.jpg" type="Texture" id=2]
+[ext_resource path="res://bg-2.png" type="Texture" id=2]
 [ext_resource path="res://knight.png" type="Texture" id=3]
 [ext_resource path="res://dragon.png" type="Texture" id=5]
 [ext_resource path="res://LevelButton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://LevelSelect.tscn" type="PackedScene" id=7]
-[ext_resource path="res://StartScreen.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -21,8 +19,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Bg" type="Sprite" parent="."]
-position = Vector2( 512.703, 300.849 )
-scale = Vector2( 1.6103, 1.59454 )
+position = Vector2( 511.5, 300.5 )
+scale = Vector2( 0.645625, 0.56701 )
 texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
@@ -70,7 +68,7 @@ rect_min_size = Vector2( 300, 300 )
 text = "Play as Short"
 icon = ExtResource( 3 )
 flat = true
-levelScene = ExtResource( 7 )
+levelScene = "res://LevelSelect.tscn"
 
 [node name="CutButton" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 6 )]
 margin_left = 400.0
@@ -80,7 +78,7 @@ rect_min_size = Vector2( 300, 300 )
 text = "Play as Cut"
 icon = ExtResource( 5 )
 flat = true
-levelScene = ExtResource( 7 )
+levelScene = "res://LevelSelect.tscn"
 
 [node name="BackButton" parent="." instance=ExtResource( 6 )]
 margin_left = 16.0
@@ -91,4 +89,4 @@ rect_min_size = Vector2( 120, 50 )
 text = "Back"
 icon = null
 flat = true
-levelScene = ExtResource( 8 )
+levelScene = "res://StartScreen.tscn"

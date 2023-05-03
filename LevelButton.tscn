@@ -5,8 +5,8 @@
 [ext_resource path="res://level_1.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 20
-outline_size = 2
+size = 30
+outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 

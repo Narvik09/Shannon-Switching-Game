@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bridge.png-b6e74c413704e9f723584db1b9e0db6a.stex"
+path="res://.import/bg-2.png-1bd7993e0e09553adc3d4512229f5c89.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bridge.png"
-dest_files=[ "res://.import/bridge.png-b6e74c413704e9f723584db1b9e0db6a.stex" ]
+source_file="res://bg-2.png"
+dest_files=[ "res://.import/bg-2.png-1bd7993e0e09553adc3d4512229f5c89.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

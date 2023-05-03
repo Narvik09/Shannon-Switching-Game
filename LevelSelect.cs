@@ -38,7 +38,7 @@ public class LevelSelect : Control
                 if (fileName.EndsWith(".tscn"))
                 {
                     // GD.Print(fileName);
-                    CreateLevelButton((PackedScene)ResourceLoader.Load(dirPath + "/" + fileName), fileName);
+                    CreateLevelButton((dirPath + "/" + fileName), fileName);
                 }
                 fileName = dir.GetNext();
 
@@ -51,7 +51,7 @@ public class LevelSelect : Control
         }
     }
 
-    private void CreateLevelButton(PackedScene levelScene, string levelName)
+    private void CreateLevelButton(string levelScene, string levelName)
     {
         var button = (LevelButton)LevelButton.Instance();
         var tempText = levelName.Trim().Substr(0, levelName.LastIndexOf('.'));

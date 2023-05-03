@@ -7,8 +7,8 @@ public class LevelButton : Button
     private Vector2 growSize = new Vector2((float)1.05, (float)1.05);
     // Called when the node enters the scene tree for the first time.
 
-    [Export]
-    public PackedScene levelScene;
+    [Export(PropertyHint.File)]
+    public string levelScene;
     public override void _Ready()
     {
 
@@ -36,7 +36,7 @@ public class LevelButton : Button
         {
             return;
         }
-        GetTree().ChangeSceneTo(levelScene);
+        GetTree().ChangeSceneTo((PackedScene)ResourceLoader.Load(levelScene));
     }
 
 

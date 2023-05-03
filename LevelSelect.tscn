@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://KarenFat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://LevelSelect.cs" type="Script" id=2]
 [ext_resource path="res://LevelButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://homescreenbg.png" type="Texture" id=4]
-[ext_resource path="res://StartScreen.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -71,4 +70,4 @@ rect_min_size = Vector2( 120, 50 )
 text = "Back"
 icon = null
 flat = true
-levelScene = ExtResource( 5 )
+levelScene = "res://CharacterSelect.tscn"

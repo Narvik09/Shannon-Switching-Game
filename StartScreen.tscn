@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://StartScreen.cs" type="Script" id=1]
 [ext_resource path="res://fire_bg.png" type="Texture" id=2]
+[ext_resource path="res://LevelButton.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://KarenFat.ttf"
@@ -62,22 +63,47 @@ margin_right = 441.0
 alignment = 1
 
 [node name="SinglePlayerButton" type="Button" parent="VBoxContainer"]
-margin_top = 90.0
+visible = false
+margin_top = 70.0
 margin_right = 896.0
-margin_bottom = 127.0
+margin_bottom = 107.0
 custom_fonts/font = SubResource( 4 )
 text = "SinglePlayer"
 flat = true
 align = 0
 
 [node name="MultiplayerButton" type="Button" parent="VBoxContainer"]
-margin_top = 131.0
+visible = false
+margin_top = 90.0
 margin_right = 896.0
-margin_bottom = 168.0
+margin_bottom = 127.0
 custom_fonts/font = SubResource( 4 )
 text = "Multiplayer"
 flat = true
 align = 0
+
+[node name="SinglePlayerButton2" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 90.0
+margin_right = 896.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 0, 0 )
+text = "SinglePlayer"
+icon = null
+flat = true
+align = 0
+expand_icon = false
+levelScene = "res://CharacterSelect.tscn"
+
+[node name="MultiPlayerButton" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 131.0
+margin_right = 896.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 0, 0 )
+text = "MultiPlayer"
+icon = null
+flat = true
+align = 0
+expand_icon = false
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 margin_top = 172.0
