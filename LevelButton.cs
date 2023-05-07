@@ -9,9 +9,15 @@ public class LevelButton : Button
 
     [Export(PropertyHint.File)]
     public string levelScene;
+
+    public SceneTransition sceneTransition;
+
+    public Global global;
     public override void _Ready()
     {
-
+        // Global global = (Global)
+        global = GetNode<Global>("/root/Global");
+        sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
     }
 
     public void OnLevelButtonMouseEntered()
@@ -36,8 +42,36 @@ public class LevelButton : Button
         {
             return;
         }
-        GetTree().ChangeSceneTo((PackedScene)ResourceLoader.Load(levelScene));
+        sceneTransition.ChangeScene(levelScene);
     }
 
+    public void OnShortButtonPressed()
+    {
+        // GD.Print("Short");
+        global.isCutPlaying = !global.isPlayingFirst;
+        if (global.isSinglePlayer)
+        {
+            global.isCutComputer = true;
+        }
+    }
 
+    public void OnCutButtonPressed()
+    {
+        // GD.Print("Cut");
+        global.isCutPlaying = global.isPlayingFirst;
+        if (global.isSinglePlayer)
+        {
+            global.isShortComputer = true;
+        }
+    }
+
+    public void OnSinglePlayerButtonPressed()
+    {
+        global.isSinglePlayer = true;
+    }
+
+    public void OnMultiPlayerButtonPressed()
+    {
+        global.isSinglePlayer = false;
+    }
 }

@@ -11,53 +11,115 @@ public class RopeSegment : RigidBody2D
 
     // Each rope segment has an Id and a parent rope segment.
     public int ID = 0;
+
     public RigidBody2D Parent = null;
+
+    public Global global;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-
+        global = GetNode<Global>("/root/Global");
     }
 
-    private void RopeSegmentClicked()
+    private void cutPlay(Rope rope, TestStage testStage)
+    {
+        RemoveEdgeWithSegment();
+    }
+
+    private void shortPlay(Rope rope, TestStage testStage)
+    {
+        ReinforceEdgeWithSegment();
+    }
+
+    // Helper function to indicate the player that needs to make a move.
+    public void ShiftPlayerHighlight(TestStage testStage)
+    {
+        // Highlight Cut if it's Cut's turn.
+        if (global.isCutPlaying)
+        {
+            var material = testStage.startNodeSegmentEnd.GetNode<Sprite>("ShortPlayer/Sprite").Material;
+            (material as ShaderMaterial).SetShaderParam("aura_width", 0);
+            material = testStage.endNodeSegmentEnd.GetNode<Sprite>("CutPlayer/Sprite").Material;
+            (material as ShaderMaterial).SetShaderParam("aura_width", 1);
+        }
+        else
+        {
+            var material = testStage.startNodeSegmentEnd.GetNode<Sprite>("ShortPlayer/Sprite").Material;
+            (material as ShaderMaterial).SetShaderParam("aura_width", 1);
+            material = testStage.endNodeSegmentEnd.GetNode<Sprite>("CutPlayer/Sprite").Material;
+            (material as ShaderMaterial).SetShaderParam("aura_width", 0);
+        }
+    }
+
+    private async void RopeSegmentClicked()
     {
         // TODO: Maybe highlight the entire rope.
         Rope rope = this.GetParent<Rope>();
         TestStage testStage = (TestStage)rope.GetParent<TestStage>();
-        if (testStage.cutPlaying)
+
+        if (global.isCutPlaying)
         {
-            // If Cut plays, remove the edge (delete from the graph).
-            RemoveEdgeWithSegment();
-            testStage.cutPlaying = false;
-            var material = testStage.startNodeSegmentEnd.GetNode<Sprite>("ShortPlayer/Sprite").Material;
-            (material as ShaderMaterial).SetShaderParam("aura_width", 1);
-            material = testStage.endNodeSegmentEnd.GetNode<Sprite>("CutPlayer/Sprite").Material;
-            (material as ShaderMaterial).SetShaderParam("aura_width", 0);
+            cutPlay(rope, testStage);
         }
         else
         {
-            // If Short plays, reinforce the edge (change the sprites, update the graph).
-            ReinforceEdgeWithSegment();
-            testStage.cutPlaying = true;
-            var material = testStage.startNodeSegmentEnd.GetNode<Sprite>("ShortPlayer/Sprite").Material;
-            (material as ShaderMaterial).SetShaderParam("aura_width", 0);
-            material = testStage.endNodeSegmentEnd.GetNode<Sprite>("CutPlayer/Sprite").Material;
-            (material as ShaderMaterial).SetShaderParam("aura_width", 1);
+            shortPlay(rope, testStage);
         }
 
+        if (CheckForWinners(testStage))
+        {
+            return;
+        }
+
+        global.isCutPlaying = !global.isCutPlaying;
+        ShiftPlayerHighlight(testStage);
+
+        // Here just to make the highlight visible for now.
+        await Task.Delay(TimeSpan.FromMilliseconds(3000));
+
+        // End if multiplayer.
+        if (!global.isSinglePlayer)
+        {
+            return;
+        }
+
+        // Otherwise, the computer moves.
+        if (!global.isCutPlaying && global.isShortComputer)
+        {
+            testStage.MoveShort();
+        }
+        else if (global.isCutPlaying && global.isCutComputer)
+        {
+            testStage.MoveCut();
+        }
+
+        if (CheckForWinners(testStage))
+        {
+            return;
+        }
+
+        global.isCutPlaying = !global.isCutPlaying;
+        ShiftPlayerHighlight(testStage);
+    }
+
+    private Boolean CheckForWinners(TestStage testStage)
+    {
         if (DidCutWin(testStage.root))
         {
-            testStage.GetNode<Label>("Label").Text = "Cut has won!";
-            testStage.GetNode<Label>("Label").Show();
+            testStage.GetNode<Label>("Node2D/Label").Text = "Cut has won!";
+            testStage.GetNode<Label>("Node2D/Label").Show();
             GD.Print("Cut has won!");
-            return;
+            return true;
         }
         if (DidShortWin(testStage.root))
         {
-            testStage.GetNode<Label>("Label").Text = "Short has won!";
-            testStage.GetNode<Label>("Label").Show();
+            testStage.GetNode<Label>("Node2D/Label").Text = "Short has won!";
+            testStage.GetNode<Label>("Node2D/Label").Show();
             GD.Print("Short has won!");
+            return true;
         }
+        return false;
     }
 
     private async void ReinforceEdgeWithSegment()
@@ -78,7 +140,6 @@ public class RopeSegment : RigidBody2D
         var animationPlayer = testStage.startNodeSegmentEnd.GetNode<AnimationPlayer>("ShortPlayer/Sprite/AnimationPlayer");
         animationPlayer.Play("Chain");
         await Task.Delay(TimeSpan.FromMilliseconds(1000));
-
 
         foreach (RigidBody2D ropeSegment in rope.ropeSegments)
         {

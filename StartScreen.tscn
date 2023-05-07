@@ -59,32 +59,12 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -455.0
 margin_top = -300.0
-margin_right = 441.0
+margin_right = -246.0
 alignment = 1
 
-[node name="SinglePlayerButton" type="Button" parent="VBoxContainer"]
-visible = false
-margin_top = 70.0
-margin_right = 896.0
-margin_bottom = 107.0
-custom_fonts/font = SubResource( 4 )
-text = "SinglePlayer"
-flat = true
-align = 0
-
-[node name="MultiplayerButton" type="Button" parent="VBoxContainer"]
-visible = false
+[node name="SinglePlayerButton" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 90.0
-margin_right = 896.0
-margin_bottom = 127.0
-custom_fonts/font = SubResource( 4 )
-text = "Multiplayer"
-flat = true
-align = 0
-
-[node name="SinglePlayerButton2" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 90.0
-margin_right = 896.0
+margin_right = 209.0
 margin_bottom = 127.0
 rect_min_size = Vector2( 0, 0 )
 text = "SinglePlayer"
@@ -96,7 +76,7 @@ levelScene = "res://CharacterSelect.tscn"
 
 [node name="MultiPlayerButton" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 131.0
-margin_right = 896.0
+margin_right = 209.0
 margin_bottom = 168.0
 rect_min_size = Vector2( 0, 0 )
 text = "MultiPlayer"
@@ -104,16 +84,17 @@ icon = null
 flat = true
 align = 0
 expand_icon = false
+levelScene = "res://CharacterSelect.tscn"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 margin_top = 172.0
-margin_right = 896.0
+margin_right = 209.0
 margin_bottom = 209.0
 custom_fonts/font = SubResource( 4 )
 text = "Quit"
 flat = true
 align = 0
 
-[connection signal="pressed" from="VBoxContainer/SinglePlayerButton" to="." method="OnSinglePlayerButtonPressed"]
-[connection signal="pressed" from="VBoxContainer/MultiplayerButton" to="." method="OnMultiPlayerButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/SinglePlayerButton" to="VBoxContainer/SinglePlayerButton" method="OnSinglePlayerButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/MultiPlayerButton" to="VBoxContainer/MultiPlayerButton" method="OnMultiPlayerButtonPressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="OnQuitButtonPressed"]

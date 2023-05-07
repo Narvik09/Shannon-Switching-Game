@@ -7,9 +7,12 @@ public class StartScreen : Control
 
     public PackedScene characterScene = (PackedScene)ResourceLoader.Load("res://CharacterSelect.tscn");
 
+    public Global global;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        global = GetNode<Global>("/root/Global");
         this.GetNode<Button>("VBoxContainer/SinglePlayerButton").GrabFocus();
     }
 
@@ -31,8 +34,8 @@ public class StartScreen : Control
 
     public void OnSinglePlayerButtonPressed()
     {
+        global.isSinglePlayer = true;
         GetTree().ChangeSceneTo(characterScene);
-
         // SetScene("SinglePlayer", "res://TestStage.tscn");
         // HideButtons();
     }
