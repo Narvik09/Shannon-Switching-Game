@@ -8,6 +8,8 @@ public class Rope : Node
 {
     // list to store all rope segments
     public List<RigidBody2D> ropeSegments = new List<RigidBody2D>();
+
+    public List<RopeSegment> allRopeSegments = new List<RopeSegment>();
     // each segment length
     const double segmentLength = 16.0;
 
@@ -87,6 +89,7 @@ public class Rope : Node
         segment.Parent = parent;
         segment.ID = id;
         AddChild(segment);
+        allRopeSegments.Add(segment);
         var newJoint = new PinJoint2D();
         newJoint.NodeA = parent.GetPath();
         newJoint.NodeB = segment.GetPath();

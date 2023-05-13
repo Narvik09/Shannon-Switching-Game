@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://KarenFat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://bg-2.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://CharacterSelect.cs" type="Script" id=4]
 [ext_resource path="res://dragon.png" type="Texture" id=5]
 [ext_resource path="res://LevelButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://TextBox.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -109,11 +110,15 @@ margin_left = -270.0
 margin_top = -88.0
 margin_right = 270.0
 margin_bottom = -40.0
+rect_min_size = Vector2( 540, 48 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
 pressed = true
 text = "Do you want to play first ?"
 flat = true
+
+[node name="Control" parent="." instance=ExtResource( 7 )]
+visible = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/ShortButton" to="MarginContainer/VBoxContainer/GridContainer/ShortButton" method="OnShortButtonPressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/CutButton" to="MarginContainer/VBoxContainer/GridContainer/CutButton" method="OnCutButtonPressed"]

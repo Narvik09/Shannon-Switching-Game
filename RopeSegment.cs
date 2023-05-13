@@ -38,17 +38,30 @@ public class RopeSegment : RigidBody2D
         // Highlight Cut if it's Cut's turn.
         if (global.isCutPlaying)
         {
-            var material = testStage.startNodeSegmentEnd.GetNode<Sprite>("ShortPlayer/Sprite").Material;
-            (material as ShaderMaterial).SetShaderParam("aura_width", 0);
-            material = testStage.endNodeSegmentEnd.GetNode<Sprite>("CutPlayer/Sprite").Material;
-            (material as ShaderMaterial).SetShaderParam("aura_width", 1);
+            testStage.endNodeSegmentEnd.GetNode<AnimatedSprite>("CutPlayer/AnimatedSprite").Visible = true;
+            testStage.endNodeSegmentEnd.GetNode<Sprite>("CutPlayer/Sprite").Visible = false;
+            // var animatedSprite = this.GetNode<AnimatedSprite>("CutPlayer/AnimatedSprite");
+            // animatedSprite.Play("idle");
+            // var animationPlayer = testStage.startNodeSegmentEnd.GetNode<AnimationPlayer>("ShortPlayer/Sprite/AnimationPlayer");
+            // animationPlayer.Stop(true);
+            // var material = testStage.startNodeSegmentEnd.GetNode<Sprite>("ShortPlayer/Sprite").Material;
+            // (material as ShaderMaterial).SetShaderParam("aura_width", 0);
+            // material = testStage.endNodeSegmentEnd.GetNode<Sprite>("CutPlayer/Sprite").Material;
+            // (material as ShaderMaterial).SetShaderParam("aura_width", 1);
+
         }
         else
         {
-            var material = testStage.startNodeSegmentEnd.GetNode<Sprite>("ShortPlayer/Sprite").Material;
-            (material as ShaderMaterial).SetShaderParam("aura_width", 1);
-            material = testStage.endNodeSegmentEnd.GetNode<Sprite>("CutPlayer/Sprite").Material;
-            (material as ShaderMaterial).SetShaderParam("aura_width", 0);
+            var animatedSprite = testStage.startNodeSegmentEnd.GetNode<AnimatedSprite>("ShortPlayer/Sprite");
+            animatedSprite.Animation = "idle";
+            var animationPlayer = testStage.startNodeSegmentEnd.GetNode<AnimationPlayer>("ShortPlayer/Sprite/AnimationPlayer");
+            animationPlayer.Play("Idle");
+
+            // var material = testStage.startNodeSegmentEnd.GetNode<Sprite>("ShortPlayer/Sprite").Material;
+            // (material as ShaderMaterial).SetShaderParam("aura_width", 1);
+            // material = testStage.endNodeSegmentEnd.GetNode<Sprite>("CutPlayer/Sprite").Material;
+            // (material as ShaderMaterial).SetShaderParam("aura_width", 0);
+
         }
     }
 
@@ -103,7 +116,7 @@ public class RopeSegment : RigidBody2D
         ShiftPlayerHighlight(testStage);
     }
 
-    private Boolean CheckForWinners(TestStage testStage)
+    public Boolean CheckForWinners(TestStage testStage)
     {
         if (DidCutWin(testStage.root))
         {
@@ -122,7 +135,7 @@ public class RopeSegment : RigidBody2D
         return false;
     }
 
-    private async void ReinforceEdgeWithSegment()
+    public async void ReinforceEdgeWithSegment()
     {
         Rope rope = this.GetParent<Rope>();
 
@@ -135,8 +148,28 @@ public class RopeSegment : RigidBody2D
         Rubjerg.Graphviz.Node endNode = testStage.root.GetNode(endNodeLabel);
 
         Edge edge = testStage.root.GetEdge(endNode, startNode, edgeName);
+        foreach (var dualEdge in testStage.dual.Edges())
+        {
+            if (dualEdge.GetName().Equals(edge.GetName()))
+            {
+                GD.Print("Here...");
+                if (global.isCutComputer)
+                {
+                    testStage.oppLastTailName = dualEdge.Tail().GetName();
+                    testStage.oppLastHeadName = dualEdge.Head().GetName();
+                    testStage.oppLastName = dualEdge.GetName();
+                    testStage.oppLastNum = testStage.edgeToNum[dualEdge];
+                }
+                // Removing in dual...
+                testStage.dual.Delete(dualEdge);
+                break;
+            }
+        }
+
         edge.SafeSetAttribute("fixed", "true", "false");
 
+        var animatedSprite = testStage.startNodeSegmentEnd.GetNode<AnimatedSprite>("ShortPlayer/Sprite");
+        animatedSprite.Animation = "chain";
         var animationPlayer = testStage.startNodeSegmentEnd.GetNode<AnimationPlayer>("ShortPlayer/Sprite/AnimationPlayer");
         animationPlayer.Play("Chain");
         await Task.Delay(TimeSpan.FromMilliseconds(1000));
@@ -159,9 +192,11 @@ public class RopeSegment : RigidBody2D
             ropeSegment.GetNode<Sprite>("MetalBridge").Visible = true;
             // ropeSegment.Mode = ModeEnum.Static;
         }
+        // await Task.Delay(TimeSpan.FromMilliseconds(500));
+
     }
 
-    private async void RemoveEdgeWithSegment()
+    public async void RemoveEdgeWithSegment()
     {
         Rope rope = this.GetParent<Rope>();
 
@@ -174,6 +209,23 @@ public class RopeSegment : RigidBody2D
         Rubjerg.Graphviz.Node endNode = testStage.root.GetNode(endNodeLabel);
 
         Edge edge = testStage.root.GetEdge(endNode, startNode, edgeName);
+        if (global.isShortComputer)
+        {
+            testStage.oppLastTailName = edge.Tail().GetName();
+            testStage.oppLastHeadName = edge.Head().GetName();
+            testStage.oppLastName = edge.GetName();
+            testStage.oppLastNum = testStage.edgeToNum[edge];
+        }
+        foreach (var dualEdge in testStage.dual.Edges())
+        {
+            GD.Print("Hehe");
+            if (dualEdge.GetName().Equals(edge.GetName()))
+            {
+                GD.Print("Fixing in dual.");
+                dualEdge.SafeSetAttribute("fixed", "true", "false");
+                break;
+            }
+        }
         testStage.root.Delete(edge);
 
         for (int i = 0; i < rope.ropeSegments.Count; i++)
@@ -185,10 +237,11 @@ public class RopeSegment : RigidBody2D
                 break;
             }
         }
-
+        testStage.endNodeSegmentEnd.GetNode<AnimatedSprite>("CutPlayer/AnimatedSprite").Visible = false;
+        testStage.endNodeSegmentEnd.GetNode<Sprite>("CutPlayer/Sprite").Visible = true;
         var animationPlayer = testStage.endNodeSegmentEnd.GetNode<AnimationPlayer>("CutPlayer/Sprite/AnimationPlayer");
         animationPlayer.Play("Fire");
-        await Task.Delay(TimeSpan.FromMilliseconds(1000));
+        await Task.Delay(TimeSpan.FromMilliseconds(500));
 
         // TODO : figure out delay in animation player
         foreach (RigidBody2D ropeSegment in rope.ropeSegments)
@@ -201,7 +254,7 @@ public class RopeSegment : RigidBody2D
             animationPlayer = ropeSegment.GetNode<AnimationPlayer>("WoodenBridge/Fire/AnimationPlayer");
             animationPlayer.Play("Burn");
         }
-        await Task.Delay(TimeSpan.FromMilliseconds(1000));
+        await Task.Delay(TimeSpan.FromMilliseconds(500));
         foreach (RigidBody2D ropeSegment in rope.ropeSegments)
         {
             if (ropeSegment == null)
@@ -211,7 +264,7 @@ public class RopeSegment : RigidBody2D
             animationPlayer = ropeSegment.GetNode<AnimationPlayer>("WoodenBridge/Fire/AnimationPlayer");
             animationPlayer.Play("Fade");
         }
-        await Task.Delay(TimeSpan.FromMilliseconds(1000));
+        await Task.Delay(TimeSpan.FromMilliseconds(500));
         foreach (RigidBody2D ropeSegment in rope.ropeSegments)
         {
             if (ropeSegment == null)
@@ -220,6 +273,8 @@ public class RopeSegment : RigidBody2D
             }
             ropeSegment.QueueFree();
         }
+        // await Task.Delay(TimeSpan.FromMilliseconds(500));
+
     }
 
     private Boolean DidCutWin(RootGraph graph)

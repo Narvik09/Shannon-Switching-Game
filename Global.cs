@@ -1,7 +1,8 @@
 using Godot;
 using System;
+using Rubjerg.Graphviz;
 
-public class Global : Node
+public class Global : Godot.Node
 {
     public Boolean isCutPlaying = true;
 
@@ -12,6 +13,8 @@ public class Global : Node
     public Boolean isShortComputer = false;
 
     public Boolean isPlayingFirst = true;
+
+    public RootGraph rootGraph, dualGraph;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()

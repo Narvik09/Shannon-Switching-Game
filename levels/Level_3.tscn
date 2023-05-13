@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/TestStage.cs" type="Script" id=1]
 [ext_resource path="res://Background.jpg" type="Texture" id=2]
+[ext_resource path="res://levels/SetDualGraph.cs" type="Script" id=3]
 [ext_resource path="res://LevelButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/SetRootGraph.cs" type="Script" id=5]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://KarenFat.ttf"
@@ -18,8 +20,8 @@ script = ExtResource( 1 )
 dotFilePath = "res://dotFiles/Level_3.dot"
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 506.5, 299 )
-scale = Vector2( 0.528646, 0.559259 )
+position = Vector2( 513.5, 299 )
+scale = Vector2( 0.535938, 0.559259 )
 texture = ExtResource( 2 )
 
 [node name="BackButton" parent="." instance=ExtResource( 4 )]
@@ -54,3 +56,11 @@ text = "Cut has Won!"
 align = 1
 valign = 1
 uppercase = true
+
+[node name="SetRootGraph" type="Node2D" parent="."]
+script = ExtResource( 5 )
+rootDotFilePath = "res://dotFiles/Level_3.dot"
+
+[node name="SetDualGraph" type="Node2D" parent="."]
+script = ExtResource( 3 )
+dualDotFilePath = "res://dotFiles/Level_3_Dual.dot"

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://PC Computer - House - Text Box.png" type="Texture" id=1]
+[ext_resource path="res://KarenFat.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://TextBox.cs" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+dialogFilePath = "res://dialogFiles/Introduction.txt"
+
+[node name="DialogBox" type="Control" parent="."]
+anchor_left = 0.503
+anchor_top = 1.0
+anchor_right = 0.503
+anchor_bottom = 1.0
+margin_left = -429.072
+margin_top = -211.0
+margin_right = 428.928
+margin_bottom = -30.0
+
+[node name="TextureRect" type="TextureRect" parent="DialogBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "This is a random text holder..."
+text = "This is a random text holder..."
+
+[node name="Tween" type="Tween" parent="DialogBox"]

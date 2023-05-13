@@ -1,0 +1,7 @@
+graph dual1 {
+    Start -- 1 [key = "6";];
+    Start -- 2 [key = "7";];
+    2 -- 1 [key = "5";];
+    2 -- End [key = "4";];
+    1 -- End [key = "3";];
+}

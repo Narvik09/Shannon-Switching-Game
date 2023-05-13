@@ -21,7 +21,7 @@ public class CharacterSelect : Control
 
     public void OnPlayFirstPressed()
     {
-        global.isPlayingFirst = !global.isPlayingFirst;
+        global.isPlayingFirst = GetNode<CheckButton>("PlayFirst").Pressed;
     }
 
 
