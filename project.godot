@@ -11,13 +11,13 @@ config_version=4
 [application]
 
 config/name="GraphTesting"
-run/main_scene="res://StartScreen.tscn"
+run/main_scene="res://screens/startScreen/StartScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Global.cs"
-SceneTransition="*res://SceneTransition.tscn"
+Global="*res://global/Global.cs"
+SceneTransition="*res://global/sceneTransition/SceneTransition.tscn"
 
 [display]
 
