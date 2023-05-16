@@ -62,7 +62,7 @@ public class TestStage : Node2D
 
         dotFilePath = dotFilePath.Substring("res://".Length());
         // reading from dot file
-        // RootGraph.FromDotFile("dotFiles/Level_4.dot");
+        // RootGraph.FromDotFile("screens/gameScreen/assets/dotFiles/Level_4.dot");
         // RootGraph graph = RootGraph.FromDotFile(dotFilePath);
         // RootGraph graph = global.rootGraph;
         // ParseGraph(graph);
@@ -391,28 +391,47 @@ public class TestStage : Node2D
                     visNum++;
                 }
             }
-            GD.Print("Forest 0 : ");
+            // GD.Print("Forest 0 : ");
 
-            foreach (var edge in forests[0].Edges())
+            // foreach (var edge in forests[0].Edges())
+            // {
+            //     GD.Print("Tail : " + edge.Tail().GetName() + "; Head : " + edge.Head().GetName());
+            // }
+            // GD.Print("Forest 1 : ");
+            // foreach (var edge in forests[1].Edges())
+            // {
+            //     GD.Print("Tail : " + edge.Tail().GetName() + "; Head : " + edge.Head().GetName());
+            // }
+
+            GD.Print("Forest 1: ");
+            foreach (var node in forests[i].Nodes())
             {
-                GD.Print("Tail : " + edge.Tail().GetName() + "; Head : " + edge.Head().GetName());
+                GD.Print(node.GetName());
             }
-            GD.Print("Forest 1 : ");
-            foreach (var edge in forests[1].Edges())
+            GD.Print("Forest 2: ");
+            foreach (var node in forests[i ^ 1].Nodes())
             {
-                GD.Print("Tail : " + edge.Tail().GetName() + "; Head : " + edge.Head().GetName());
+                GD.Print(node.GetName());
             }
 
             GD.Print("Number of components: " + (visNum - 1));
             foreach (var edge in forests[i ^ 1].Edges())
             {
-                GD.Print("1: " + searchOrder[forests[i].GetNode(edge.Tail().GetName())]);
+                // GD.Print("1: " + searchOrder[forests[i].GetNode(edge.Tail().GetName())]);
 
-                GD.Print("2: " + searchOrder[forests[i].GetNode(edge.Head().GetName())]);
+                // GD.Print("2: " + searchOrder[forests[i].GetNode(edge.Head().GetName())]);
+                if (forests[i].GetNode(edge.Tail().GetName()) == null)
+                {
+                    GD.Print("This is null for some reason. [Tail]");
+                }
+                if (forests[i].GetNode(edge.Head().GetName()) == null)
+                {
+                    GD.Print("This is null for some reason. [Head]");
+                }
                 if (searchOrder[forests[i].GetNode(edge.Tail().GetName())] !=
                 searchOrder[forests[i].GetNode(edge.Head().GetName())])
                 {
-                    GD.Print("OKAY!");
+                    // GD.Print("OKAY!");
                     // We need the edge in the original dual.
                     var ox = dual.GetNode(edge.Tail().GetName());
                     var oy = dual.GetNode(edge.Head().GetName());
@@ -750,6 +769,18 @@ public class TestStage : Node2D
                 int[] dep0 = GetDepths(mask, index, 0);
                 int[] dep1 = GetDepths(mask, index, 1);
 
+                GD.Print("Zero depth nodes for [" + 0 + "]:");
+                for (int i = 0; i < numNodes; i++)
+                {
+                    GD.Print("Dep0: " + numToNode[i].GetName() + " " + dep0[i]);
+                }
+
+                GD.Print("Zero depth nodes for [" + 1 + "]:");
+                for (int i = 0; i < numNodes; i++)
+                {
+                    GD.Print("Dep1: " + numToNode[i].GetName() + " " + dep1[i]);
+                }
+
                 Queue<Tuple<int, int>> q = new Queue<Tuple<int, int>>();
                 q.Enqueue(new Tuple<int, int>(edgeNum, isDup));
 
@@ -803,6 +834,9 @@ public class TestStage : Node2D
 
                                     endpoints[c ^ 1] ^= nodeToNum[numToEdge[actualAnco].Head()]
                                 ^ nodeToNum[numToEdge[actualAnco].Tail()];
+
+                                    // // How was this working without this?!
+                                    anco = par[endpoints[c ^ 1]];
                                 }
                                 break;
                             }
@@ -820,6 +854,13 @@ public class TestStage : Node2D
                         while (stk.Count > 0)
                         {
                             int toPush = stk.Pop();
+                            int blah = toPush;
+                            if (blah >= numToEdge.Count)
+                            {
+                                blah -= toPush;
+                            }
+                            Edge qEdge = numToEdge[blah];
+                            GD.Print("Queueing: " + qEdge.Tail().GetName() + " " + qEdge.Head().GetName());
                             if (toPush >= numToEdge.Count)
                             {
                                 q.Enqueue(new Tuple<int, int>(toPush - numToEdge.Count, 1));
@@ -920,6 +961,16 @@ public class TestStage : Node2D
                     }
                 }
             }
+            int diff = 0;
+            foreach (var node in forests[0].Nodes())
+            {
+                diff++;
+            }
+            foreach (var nod in forests[1].Nodes())
+            {
+                diff--;
+            }
+            GD.Print("Node count difference: " + diff);
         }
 
         return returnEdge;
@@ -969,12 +1020,13 @@ public class TestStage : Node2D
         int[] dep = new int[numNodes];
         for (int i = 0; i < numNodes; i++)
         {
-            dep[i] = 0;
+            dep[i] = -1;
         }
         for (int i = 0; i < numNodes; i++)
         {
-            if (dep[i] == 0 && ((1 << i) & mask) > 0)
+            if (dep[i] == -1 && ((1 << i) & mask) > 0)
             {
+                dep[i] = 0;
                 DepthFirstSearch2(i, dep, mask, index, forestNum);
             }
         }
@@ -987,7 +1039,7 @@ public class TestStage : Node2D
         {
             int j = entry.Item1;
             int edgeNum = entry.Item2;
-            if (dep[j] == 0 && ((1 << j) & mask) > 0)
+            if (dep[j] == -1 && ((1 << j) & mask) > 0)
             {
                 if (index[edgeNum] == forestNum)
                 {
