@@ -32,3 +32,5 @@ by Short earlier.
 
 This demo video provides a glimpse into the exciting gameplay and features of our implementation
 of Shannon Switching Game.
+
+[![Shannon's Switching Game Demo](https://img.youtube.com/vi/OIEMVKvCT9c/0.jpg)](https://www.youtube.com/watch?v=OIEMVKvCT9c)
