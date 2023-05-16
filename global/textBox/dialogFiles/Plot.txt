@@ -1,8 +1,8 @@
-In the mystical realm of [color=#32CD32]Avalora[/color], a timeless battle ensues between [shake level=10][color=#1E90FF]Sir Percival[/color], a gallant [color=#00BFFF]Knight[/color][/shake], and [wave][color=#FF4500]Ember[/color], a cunning [color=#FF6347]Dragon[/color][/wave].
-The land is an intricate tapestry of rocks and wooden bridges, forming a delicate network known as the "Veil of Balance."
-Legends speak of the Veil's mystical energy, capable of shaping the fate of Avalora. Sir Percival, a noble defender, seeks to bring harmony by reinforcing the bridges. 
-Ember, a mischievous Dragon, revels in chaos and seeks to disrupt the balance of Avalora. With each fiery breath, Ember consumes the wooden bridges, removing them from the Veil and creating disarray. 
-Sir Percival's winning strategy revolves around connecting his place to Ember's lair. By strategically reinforcing the edges with his hammer, he tries to pave a direct route to Ember. 
-Ember's winning strategy involves strategically removing crucial bridges with her fiery breath, creating impassable gaps, and hindering Sir Percival's progress.
-Will Sir Percival successfully fortify the Veil, navigating the complex network of rocks and bridges to confront Ember and restore harmony to Avalora? 
-Or will Ember's cunning and destructive power overwhelm Sir Percival, preventing him from reaching their lair and tipping the scales of balance towards chaos?
+In the mystical realm of Avalora, a timeless battle ensues between [color=#7B68EE]Sir Percival[/color], a gallant [color=#9370D8]Knight[/color], and [color=#FF4500]Ember[/color], a cunning [color=#FF6347]Dragon[/color].
+The land is an intricate tapestry of [shake level=7]rocks[/shake] and [wave]wooden bridges[/wave], forming a delicate network known as the [color=#7CFC00]"Veil of Balance."[/color]
+Legends speak of the Veil's mystical energy, capable of shaping the fate of Avalora. [color=#7B68EE]Sir Percival[/color], a noble defender, seeks to bring harmony by reinforcing the bridges. 
+[color=#FF4500]Ember[/color], a mischievous Dragon, revels in chaos and seeks to disrupt the balance of Avalora. With each fiery breath, Ember consumes the wooden bridges, removing them from the Veil and creating disarray. 
+Sir Percival's winning strategy revolves around connecting his place to Ember's lair. By strategically [shake level=7]reinforcing the edges with his hammer[/shake], he tries to pave a direct route to Ember. 
+Ember's winning strategy involves strategically [wave]removing crucial bridges with her fiery breath[/wave], creating impassable gaps, and hindering Sir Percival's progress.
+Will [color=#7B68EE]Sir Percival[/color] successfully fortify the Veil, navigating the complex network of rocks and bridges to confront [color=#FF4500]Ember[/color] and restore harmony to Avalora? 
+Or will [color=#FF4500]Ember[/color] cunning and destructive power overwhelm [color=#7B68EE]Sir Percival[/color], preventing him from reaching their lair and tipping the scales of balance towards chaos?
